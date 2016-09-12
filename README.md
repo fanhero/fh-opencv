@@ -1,4 +1,4 @@
-# Heroku cedar14 stack buildpack with Python and OpenCV 3.0.1
+# Heroku buildpack with openCV and python support
 
 ## What
 This buildpack provides a self-contained environment for python applications that need:
@@ -15,6 +15,12 @@ This includes the following:
 - Python-2.7.10
 - Opencv-3.0.1 (with python support)
 - Numpy-1.11.1
+
+
+The buildpack is compiled with docker.
+To compile the build run the `vendor.sh` file
+`chmod a+x vendor.sh'
+'./vendor.sh'
 
 
 
