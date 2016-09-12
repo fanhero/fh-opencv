@@ -19,8 +19,8 @@ This includes the following:
 
 The buildpack is compiled with docker.
 To compile the build run the `vendor.sh` file
-`chmod a+x vendor.sh'
-'./vendor.sh'
+`chmod a+x vendor.sh`
+`./vendor.sh`
 
 
 
