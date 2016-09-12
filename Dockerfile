@@ -89,14 +89,14 @@ RUN pip install -v matplotlib==1.5.3
 
 # Install Opencv with python bindings
 RUN apt-get install -y cmake
-RUN curl -s -L https://github.com/Itseez/opencv/archive/2.4.11.zip > opencv-2.4.11.zip
-RUN unzip opencv-2.4.11.zip
-RUN rm opencv-2.4.11.zip
-WORKDIR /app/.heroku/opencv-2.4.11
+RUN curl -s -L https://github.com/Itseez/opencv/archive/3.1.0.zip > opencv-3.1.0.zip
+RUN unzip opencv-3.1.0.zip
+RUN rm opencv-3.1.0.zip
+WORKDIR /app/.heroku/opencv-3.1.0
 RUN cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendor -D BUILD_DOCS=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D BUILD_opencv_python=ON .
 RUN make install
 WORKDIR /app/.heroku
-RUN rm -rf opencv-2.4.11
+RUN rm -rf opencv-3.1.0
 
 
 # Create vendor package
