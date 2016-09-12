@@ -1,14 +1,11 @@
-# Heroku cedar14 stack buildpack with Python, OpenCV, Numpy, SciPy and Matplotlib
+# Heroku buildpack with openCV and python support
 
 ## What
 This buildpack provides a self-contained environment for python applications that need:
-OpenCV, Numpy or Scipy.
+OpenCV or Numpy.
 
 ## Why
-- Existing OpenCV buildpacks didin't work for me or python support simply wasn't there.
-- All sorts of issues with heroku python buildpack and OpenCV.
-- All sorts of issues with cedar stack default python and OpenCV.
-- Compiling things in a one-off dyno is slow.
+Thumbor works best when all of its engines use openCV built with TBB support. This is a custom build which implements openCV 3.0.1 over the standard 2.x buildpacks. TBB support is enabled to give remoteCV the most "power".
 
 ## How
 A complete environment was created using the Dockerfile file based on the heroku cedar stack v14.
@@ -16,7 +13,15 @@ A complete environment was created using the Dockerfile file based on the heroku
 This buildpack will download that environment and place it in your /app/.heroku folder.
 This includes the following:
 - Python-2.7.10
-- Opencv-2.4.11 (with python support)
+- Opencv-3.0.1 (with python support)
 - Numpy-1.11.1
-- Scipy-0.18.0
-- Matplotlib-1.5.3
+
+
+The buildpack is compiled with docker.
+To compile the build run the `vendor.sh` file
+`chmod a+x vendor.sh'
+'./vendor.sh'
+
+
+
+original Dockerfile forked from https://github.com/diogojc/heroku-buildpack-python-opencv-scipy
