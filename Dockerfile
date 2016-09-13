@@ -80,20 +80,15 @@ RUN pip install -v numpy==1.11.1
 
 
 # Install Opencv with python bindings
-##uncomment to build opencv from source##
-#RUN apt-get install -y cmake
-#RUN curl -s -L https://github.com/Itseez/opencv/archive/3.1.0.zip > opencv-3.1.0.zip
-#RUN unzip opencv-3.1.0.zip
-#RUN rm opencv-3.1.0.zip
-#WORKDIR /app/.heroku/opencv-3.1.0
-#RUN cmake -D WITH_TBB=ON -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendor -D BUILD_DOCS=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D BUILD_opencv_python=ON .
-#RUN make install
-##end uncomment to build opencv from source##
+RUN apt-get install -y cmake
+RUN curl -s -L https://github.com/Itseez/opencv/archive/3.1.0.zip > opencv-3.1.0.zip
+RUN unzip opencv-3.1.0.zip
+RUN rm opencv-3.1.0.zip
+WORKDIR /app/.heroku/opencv-3.1.0
+RUN cmake -D WITH_TBB=ON -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendor -D BUILD_DOCS=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D BUILD_opencv_python=ON .
+RUN make install
 WORKDIR /app/.heroku
-RUN curl -s -L https://s3-us-west-2.amazonaws.com/test-thumbor-alpha/vendor.tar.bz2 > opencv.tar.bz2
-RUN tar -xvzf opencv.tar.bz2
 RUN mv opencv/* .
-RUN rm -rf opencv
 #RUN rm -rf opencv-3.1.0
 
 
