@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Python + OpenCV + Numpy + Scipy"
+echo "Python + OpenCV + Numpy"
 exit 0
